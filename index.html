@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Todo list</h1>
+        <div class="todo-input block">
+            <input class="todo-input" type="text" placeholder="Add New Todo Things">
+            <button class="btn-new">Add</button>
+        </div>
+
+        <ul class="todo-list">
+            <li class="todo">
+                <label class="todo-list-label" type="checkbox">
+                    <input class="form-check-input" type="checkbox" value="">
+                    First
+                </label>
+                <button class="btn-delete">Delete</button>
+            </li>
+            <li class="todo">
+                <label class="todo-list-label" type="checkbox">
+                    <input class="form-check-input" type="checkbox" value="">
+                    Second
+                </label>
+                <button class="btn-delete">Delete</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        const todoInput = document.querySelector(".todo-input");
+        const todoButton = document.querySelector('.btn-new');
+        const todoList = document.querySelector('.todo-list');
+
+        document.querySelector('.btn-new').addEventListener('click',function(){
+            addTodos();
+        });
+        document.querySelector('.todo-input').addEventListener('keypress', function (e) {
+         // Enter 對應鍵盤代碼：13
+        if (e.which === 13) {
+         addTodos();
+         }
+        });
+
+        function addTodos() {
+        const inputValue = document.querySelector('.todo-input').value;
+        
+        // 檢查輸入欄位是否為空值，trim() 可清除字串前後空白
+        if (inputValue.trim().length === 0) return;
+        // 新增 todo
+        const newTodo = document.createElement('li');
+        newTodo.classList.add('todo');
+        newTodo.innerHTML = `
+            <label class="todo__title">
+            <input class="todo__check" type="checkbox">
+            <p>${escapeHtml(inputValue)}</p>
+            </label>
+            <button class="btn-delete"></button>
+        `
+        document.querySelector('.todo-list').appendChild(newTodo);
+        // 新增成功後，清空輸入欄
+        document.querySelector('.todo-input').value = '';
+        }
+
+        function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        }
+
+    </script>
+</body>
+</html>
