@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+  <input type="button" class='btnclass' value="更新現在時間">
+  <p class='showtime'></p>
+
+<script>
+    let btn = document.querySelector('.btnclass');
+    let time = document.querySelector('.showtime');
+
+    btn.onclick = function(){
+    time.innerHTML = Date();
+    }
+
+      
+
+
+</script>
+</body>
+</html>
