@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    
+  <div class="col-md-6 col-lg-4 mb-2 mb-md-3" id="product">
+    <div class="card shadow-sm">
+      <img src="https://sarabethsrestaurants.jp/_img/page/menu/07.jpg" class="" id="foodpic" alt="...">
+      <div class="card-body d-flex justify-content-around align-items-center">
+        <div class="">
+          <h5 class="card-text" id="name">德國培根早午餐</h5>
+        </div>
+        <div class="text-success">
+          NT. <strong class="fs-4" id="price">500</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <script>
+    const pro=[
+        {"name":"花園巧克","price":200,"img":"https://sarabethsrestaurants.jp/_img/page/menu/08.jpg"},
+        {"name":"花園巧克2","price":300,"img":"https://sarabethsrestaurants.jp/_img/page/menu/10.jpg"},
+        {"name":"花園巧克3","price":400,"img":"https://sarabethsrestaurants.jp/_img/page/menu/08.jpg"},
+    ]
+    
+    function creatpro(name,price,url){
+    let newpro = document.createElement('div');
+    let img = document.createElement('img');
+    let txt = document.createElement('div');
+    let pri  = document.createElement('div');
+    img.src = pro[i].img;
+    txt.innerHTML = pro[i].name;
+    pri.innerHTML = "NT."+pro[i].price;
+
+    newpro.appendChild(img);
+    newpro.appendChild(txt);
+    newpro.appendChild(pri);
+    document.body.appendChild(newpro);
+    }
+  
+    for(var i=0;i<pro.length;i++){
+      document.body.appendChild(creatpro(pro[i].name,pro[i].price,pro[i].img));
+    }
+  </script>
+</body>
+</html>
