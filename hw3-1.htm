@@ -44,11 +44,16 @@
     newpro.appendChild(txt);
     newpro.appendChild(pri);
     document.body.appendChild(newpro);
+
+    return newpro;
     }
   
     for(var i=0;i<pro.length;i++){
       document.body.appendChild(creatpro(pro[i].name,pro[i].price,pro[i].img));
     }
+
+    
+
   </script>
 </body>
 </html>
