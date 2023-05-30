@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM操作</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div>
+        <span onclick="changeTomenu();">餐點介紹</span>
+        <span onclick="changeToChef();">餐庭主廚</span>
+    </div>
+    <div id="menu">滑順奶油配上濃郁可可，大人氣的提拉米蘇</div>
+    <div id="chef" style="display:none";>來自義大利廚藝學院的主廚，曾經擔任知名餐廳的主廚</div>
+    <script>
+        function changeTomenu(){
+            let menu = document.querySelector("#menu");
+            let chef = document.querySelector("#chef");
+            menu.style.display = "block";
+            chef.style.display = "none";
+        }
+        function changeToChef(){
+            //先取得要操作的標籤
+            let menu = document.querySelector("#menu");
+            let chef = document.querySelector("#chef");
+            //在對標籤做操作
+            menu.style.display = "none";
+            chef.style.display = "block";
+        }
+        
+        
+    </script>
+
+</body>
+</html>
