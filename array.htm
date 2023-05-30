@@ -1,0 +1,48 @@
+<html>
+<head>
+
+</head>
+<body>
+    <table id="table">
+    </table>
+
+<script>
+    let array = [
+{"name":"Cake","price":200},
+{"name":"Tea","price":150},
+{"name":"Coffee","price":250}
+]
+
+function CreateRow(h,t1,t2){
+	let newRow = document.createElement("tr");
+	let tag= "td";
+	if(h)
+		tag = "th";
+	let leftText= document.createElement(tag);
+	let rightText=document.createElement(tag);
+	
+	leftText.innerHTML=t1;
+	rightText.innerHTML=t2;
+	
+	newRow.appendChild(leftText);
+	newRow.appendChild(rightText);
+	
+	table.appendChild(newRow);	
+}
+
+function RefreshTable(){
+	let table = document.getElementById("table");
+	var count = table.childElementCount;
+	
+	for(var i =0;i<count;i++)
+		table.removeChild(table.lastElementChild);
+	
+	CreateRow(true,"Name","Price");
+	//read
+	for(var i=0;i<array.length;i++){
+		CreateRow(false,array[i].name,array[i].price);
+	}
+}
+</script>
+</body>
+</html>
