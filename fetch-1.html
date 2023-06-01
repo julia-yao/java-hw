@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript:fetch</title>
+</head>
+<body>
+    <div id="ul"></div>
+
+    <script>
+
+        function getdata(){
+            fetch("https://jsonplaceholder.typicode.com/users").then(function(response){
+                return response.json();
+            }).then(function(data){
+                //已經取得資料，放到畫面上
+                let ul = document.getElementById("ul");
+                for(i=0;i<data.length;i++){
+                    var li = document.createElement("li");
+                    li.innerHTML=data[i].name;
+                    ul.appendChild(li);
+                }
+            });
+        }   
+        getdata();
+
+    
+    </script>
+</body>
+</html>
