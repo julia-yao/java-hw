@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解構賦值</title>
+</head>
+<body>
+    <script>
+        /*
+        let arr = [3,4,5];
+        let d1 = arr[0];
+        let d2 = arr[1];
+        let d3 = arr[2];
+        
+        let [d1, d2, d3, d4=10] = arr;
+        console.log(d1,d2,d3,d4);
+        */
+        //變數資料交換
+        let n1=3;
+        let n2=4;
+        [n2,n1]=[n1,n2];
+        console.log(n1,n2);
+        //物件的解構賦值 物件用成員的名稱對應
+        //物件的宣告和解構分開
+        let obj={x:3,y:4,z:0};
+        let x,y,z,a;
+        ({x,y,z,a=2}=obj);
+        console.log(x,y,z,a);
+        
+        //統整函式的物件參數 用物件來當作參數 傳遞參數的物件->函式
+        function add({n1,n2}){
+            console.log(n1+n2);
+        }
+        add({n1:3,n2:6});
+    </script>
+    
+</body>
+</html>

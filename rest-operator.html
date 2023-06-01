@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其餘運算符號</title>
+</head>
+<body>
+    <script>
+        //運用在解構賦值
+        let [n1,n2, ...data]=[0,1,2,3,4,5];
+        console.log(n1,n2,data);
+        //物件的解構賦值
+        let {x,y, ...obj} ={x:3,y:4,a:0,b:1,c:2};
+        console.log(x,y,obj); 
+        //把沒有指定的成員 放到陣列內
+        //運用在函式參數
+        function add(n1,n2, ...data){
+            console.log(n1,n2, data);
+            let result=n1+n2;
+            for(let i=0;i<data.length;i++){
+                result = result+data[i];
+                
+            }
+            console.log(result);
+        }
+        add(2,3);
+        add(1,2,3,4,5,100);//超出兩個數字
+        
+    </script>
+</body>
+</html>
